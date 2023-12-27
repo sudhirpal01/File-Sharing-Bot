@@ -32,13 +32,7 @@ DB_URI = os.environ.get("DATABASE_URL", "")
 DB_NAME = os.environ.get("DATABASE_NAME", "filesharexbot")
 
 #force sub channel id, if you want enable force sub
-try:
-    FORCE_SUB_CHANNEL = []
-    for x in (os.environ.get("FORCE_SUB_CHANNEL", "").split()):
-        FORCE_SUB_CHANNEL.append(int(x))
-except ValueError:
-    raise Exception("Your force sub channel does not contain valid integers")
-
+FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
 
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
